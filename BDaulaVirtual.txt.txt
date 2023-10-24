@@ -1,0 +1,38 @@
+DROP SCHEMA IF EXISTS `BDaulaVirtual`;
+CREATE SCHEMA IF NOT EXISTS `BDaulaVirtual` DEFAULT CHARACTER SET utf8 ;
+
+use BDaulaVirtual;
+
+CREATE TABLE IF NOT EXISTS `BDaulaVirtual`.`Video_tutorial` (
+  `idvideotutorial` int NOT NULL AUTO_INCREMENT,
+  `descripcion` VARCHAR(150) NOT NULL,
+  `titulo` VARCHAR(100) NOT NULL,
+  `fecha` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idvideotutorial`))
+ENGINE = InnoDB;
+
+Insert into Video_tutorial values(1,"Entorno digital y oportunidades", "Sesion 1","20-10-2023"); 
+Insert into Video_tutorial values(2,"Gestion y valor de marca en entornos digitales", "Sesion 8","21-10-2023"); 
+Insert into Video_tutorial values(3,"Internet, escenario de interacciones y mercadeo", "Sesion 11", "22-10-2023"); 
+
+
+CREATE TABLE IF NOT EXISTS `BDaulaVirtual`.`Comentario` (
+  `idcomentario` int NOT NULL AUTO_INCREMENT,
+  `descripcion` TEXT NOT NULL,
+  `fecha` VARCHAR(10) NOT NULL,
+  `autor` VARCHAR(45) NOT NULL,
+  `fk_idvideotutorial` int NOT NULL,
+  PRIMARY KEY (`idcomentario`))
+ENGINE = InnoDB;
+
+Insert into Comentario values(1,"Comentario 1...","20-10-2023","Cristian Torres",1); 
+Insert into Comentario values(2,"Comentario 2...","21-10-2023","Andres Chaparro",1); 
+Insert into Comentario values(3,"Comentario 3...","22-10-2023","Camilo Torres",1); 
+
+Insert into Comentario values(4,"Comentario 4...","23-10-2023","Andres Guti",2); 
+Insert into Comentario values(5,"Comentario 5...","24-10-2023","Jhojan Rizo",2); 
+Insert into Comentario values(6,"Comentario 6...","24-10-2023","Miguel Guzman",2); 
+
+Insert into Comentario values(7,"Comentario 4...","1-10-2023","Estefania Torres",3); 
+Insert into Comentario values(8,"Comentario 5...","2-10-2023","Laura Duegnaz",4); 
+Insert into Comentario values(9,"Comentario 6...","3-10-2023","Angui Vanessa",5);
